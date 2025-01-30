@@ -1,0 +1,9 @@
+header{
+    /* position: fixed;
+    top: 0px; */
+    display:flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
