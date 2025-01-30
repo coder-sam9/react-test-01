@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../../../UI/Button/Button";
 import styles from "./PasswordListitem.module.css";
 
-function PasswordListitem({ title, password, onDelete, onEdit }) {
+function PasswordListitem({ title, password,id, onDelete, onEdit }) {
   return (
     <div className={styles.container}>
       <div className={styles.info}>
@@ -14,8 +14,8 @@ function PasswordListitem({ title, password, onDelete, onEdit }) {
         </p>
       </div>
       <div className={styles.actions}>
-        <Button title="Delete" onClick={onDelete} isCancel={true} />
-        <Button title="Edit" onClick={onEdit} />
+        <Button title="Delete" onClick={()=>onDelete(id)} isCancel={true} />
+        <Button title="Edit" onClick={()=>onEdit({id,title,password})} />
       </div>
     </div>
   );

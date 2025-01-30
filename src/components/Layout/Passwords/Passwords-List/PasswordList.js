@@ -1,26 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import PasswordListitem from "../Password-Listitem/PasswordListitem";
+import PasswordContext from "../../../store/password-context";
 
-function PasswordList() {
-  const dummy = [
-    { title: "abc", password: 123 },
-    { title: "xyz", password: 111 },
-    { title: "new", password: 101 },
-  ];
+function PasswordList({search,onEditId}) {
 
+  const passwordCtx=useContext(PasswordContext);
+  const showPasswords=passwordCtx.totalPasswords.filter(item=>{
+    return item.title.toLowerCase().includes(search.toLowerCase())
+  })
+  const onDelete=(id)=>{
+    passwordCtx.removeItem(id)
+  }
+  const onEdit=(item)=>{
+    onEditId(item.id);
+
+  }
   return (
     <div>
       <h2>
 
       All Passwords
       </h2>
-      {dummy.map((item, index) => (
+      {showPasswords.map((item, index) => (
         <PasswordListitem
           key={index} // Always add a key when mapping
           title={item.title}
           password={item.password}
-          onDelete={() => console.log("to delete")}
-          onEdit={() => console.log("to Edit")}
+          id={item.id}
+          onDelete={onDelete}
+          onEdit={onEdit}
         />
       ))}
     </div>
