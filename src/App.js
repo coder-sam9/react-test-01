@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddPassword from "./components/Layout/Add-Password/AddPassword";
+import AddPassword from "./components/Layout/Passwords/Add-Password/AddPassword";
 import Header from "./components/Layout/Header/Header";
 import PasswordList from "./components/Layout/Passwords/Passwords-List/PasswordList";
 import Button from "./components/UI/Button/Button";
